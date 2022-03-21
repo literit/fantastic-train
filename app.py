@@ -1,7 +1,7 @@
 #introduction to program?
 import collections
 from typing import OrderedDict
-from tabulate import tabulate
+from prettytable import PrettyTable
 
 tasks={}
 tasknumber = 0
@@ -45,15 +45,12 @@ def deletetask():
     else:
         print("Task not found.")
     askfortasks()
-# askfortasks()
-tasks = {0: ['math', '1'], 1: ['IED', '10'], 2: ['bio', '4']}
-tasks = {0: ['1', 'math'], 1: ['10', 'IED'], 2: ['4', 'bio']}
+askfortasks()
 #order dictionary by its values
 tasks = dict(OrderedDict(sorted(tasks.values())))
-print(tasks)
-print(dict(tasks))
-#flip tasks values
-print(tasks)
-#prints tasks in table format
-#should print them using tabulate, with the keys being the rows and the headers being the columns
-print(tabulate(tasks, headers=['Difficulty', 'Task']))
+#makes a table of tasks using prettytable
+table = PrettyTable()
+table.field_names = ["Task", "Difficulty"]
+for i in tasks:
+    table.add_row([str(tasks[i]), i])
+print(table)

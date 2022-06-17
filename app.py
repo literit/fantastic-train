@@ -1,5 +1,5 @@
 #introduction to program?
-import collections
+ import collections
 from typing import OrderedDict
 from prettytable import PrettyTable
 
